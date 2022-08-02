@@ -19,12 +19,12 @@ x Review and choose microservice for each person
 
 ## Service microservice
 - Models:
--- Technician
---- Fields: Name, Employee Number
--- Service Appointment
---- Fields: Vehicle VIN (Foreign Key), Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
--- AutomobileVO
---- Fields: VIN, 
+x-- Technician
+x--- Fields: Name, Employee Number
+x-- Service Appointment
+x--- Fields: Vehicle VIN (Foreign Key), Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
+x-- AutomobileVO
+x--- Fields: VIN, 
 - React
 -- Create a technician form
 -- Create a service appointment form
@@ -34,10 +34,10 @@ x Review and choose microservice for each person
 --- Search bar to search for specific VIN
 --- VIN, Customer Name, Date, Time, Tech Name, Reason
 - Nav Bar
--- Link to create new service technician
--- Link to create new service appointment
--- Link to list of service appointments
--- Link to list of service history for a VIN
+x-- Link to create new service technician
+x-- Link to create new service appointment
+x-- Link to list of service appointments
+x-- Link to list of service history for a VIN
 
 ## Sales microservice
 x- Models:

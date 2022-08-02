@@ -10,6 +10,8 @@ import AutoForm from './AutoForm';
 import SalesPersonForm from './SalesPersonForm';
 import CustomerForm from './CustomerForm';
 import SalesRecordForm from './SalesRecordForm';
+import TechnicianForm from './TechniForm';
+import ServiceAppForm from './ServiceAppForm';
 
 function App() {
   return (
@@ -27,7 +29,10 @@ function App() {
           <Route path="/sales_person" element={<SalesPersonForm />} />
           <Route path="/customer" element={<CustomerForm />} />
           <Route path="/sales_records/new" element={<SalesRecordForm />} />
+          <Route path="/technician/new" element={<TechnicianForm />} />
+          <Route path="/serviceapp/new" element={<ServiceAppForm />} />
         </Routes>
+        
       </div>
     </BrowserRouter>
   );
