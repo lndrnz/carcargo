@@ -54,9 +54,9 @@ x-- Get/add/update/delete sales person
 x-- Get/add/update/delete customer
 x-- Get/add/update/delete sales record
 - React
--- Create sales person form
--- Create new customer form
--- Create new sales record form
+x-- Create sales person form
+x-- Create new customer form
+x-- Create new sales record form
 -- List of all sales
 --- Sales Person's Name, Employee Number, Purchaser Name, Automobile VIN, and Sale Price
 -- Sales Person's sale history
