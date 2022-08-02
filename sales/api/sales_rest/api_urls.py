@@ -7,6 +7,7 @@ from .api_views import (
     api_customer,
     api_sales_record,
     api_sales_records,
+    api_automobilevos,
 )
 
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
     path("customers/<int:pk>/", api_customer, name="api_customer"),
     path("sales_records/", api_sales_records, name="api_sales_records"),
     path("sales_records/<int:pk>/", api_sales_record, name="api_sales_record"),
+    path("automobilevos/", api_automobilevos, name="api_automobilevos"),
 ]
