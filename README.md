@@ -53,18 +53,18 @@ x- Views
 x-- Get/add/update/delete sales person
 x-- Get/add/update/delete customer
 x-- Get/add/update/delete sales record
-- React
+x- React
 x-- Create sales person form
 x-- Create new customer form
 x-- Create new sales record form
--- List of all sales
---- Sales Person's Name, Employee Number, Purchaser Name, Automobile VIN, and Sale Price
--- Sales Person's sale history
---- Dropdown to search for the sales person
---- Show Sales Person Name, Customer Name, VIN, and Sale Price
-- Nav Bar:
--- Link to create a new sales person
--- Link to create a new customer
--- Link to create a new sales record
--- Link to list of all sales
--- Link to sales person history list
+x-- List of all sales
+x--- Sales Person's Name, Employee Number, Purchaser Name, Automobile VIN, and Sale Price
+x-- Sales Person's sale history
+x--- Dropdown to search for the sales person
+x--- Show Sales Person Name, Customer Name, VIN, and Sale Price
+x- Nav Bar:
+x-- Link to create a new sales person
+x-- Link to create a new customer
+x-- Link to create a new sales record
+x-- Link to list of all sales
+x-- Link to sales person history list

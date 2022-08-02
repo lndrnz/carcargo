@@ -51,7 +51,26 @@ class SalesPersonHistory extends React.Component {
         }
       }
       
-    render () {        
+    render () { 
+        const hasSales = this.state.sales_records_list.length > 0
+        let codeGroup;
+        if (hasSales) {
+            codeGroup = (<tbody>{this.state.sales_records_list.map(record => {                       
+                return (
+                <tr key={record.id}>
+                  <td>{ record.sales_person.name }</td>
+                  <td>{ record.customer.name }</td>
+                  <td>{ record.automobile.vin }</td>
+                  <td>${ record.sale_price }</td>                
+                </tr>
+              );                                   
+        })}</tbody>)
+        } else {
+            codeGroup = (<tbody>
+                            <tr><td colSpan={4}>Sales person has no recorded sales.</td></tr>
+                        </tbody>)
+        }
+        
         return (
             <>
             <h1>Sales Person History</h1>                     
@@ -76,18 +95,19 @@ class SalesPersonHistory extends React.Component {
                   <th>Sale Price</th>
                 </tr>
               </thead>
-              <tbody>
-                {this.state.sales_records_list.map(record => {                 
-                    return (
+              {codeGroup}
+              {/* <tbody>
+                {this.state.sales_records_list.map(record => {                       
+                        return (
                         <tr key={record.id}>
                           <td>{ record.sales_person.name }</td>
                           <td>{ record.customer.name }</td>
                           <td>{ record.automobile.vin }</td>
-                          <td>${ record.sale_price }</td>                 
+                          <td>${ record.sale_price }</td>                
                         </tr>
                       );                                   
                 })}
-              </tbody>
+              </tbody> */}
             </table>
             </>
         )        
