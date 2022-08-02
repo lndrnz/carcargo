@@ -2,16 +2,16 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Person 1 - Lander - Service
+* Person 2 - Joel - Sales
 
 # Steps
 x Read through all documentation
 x Create plan on readme
 x Create excalidraw for project
 x Document each microservice
-- Create inventory react pages
-- Review and choose microservice for each person
+x Create inventory react pages
+x Review and choose microservice for each person
 - Complete microservices
 
 ## Design
