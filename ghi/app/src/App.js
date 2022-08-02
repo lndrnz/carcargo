@@ -8,6 +8,7 @@ import ManuForm from './ManuForm';
 import VehicleForm from './VehicleForm';
 import AutoForm from './AutoForm';
 import SalesPersonForm from './SalesPersonForm';
+import CustomerForm from './CustomerForm';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/automobiles" element={<AutoList />} />
           <Route path="/automobiles/new" element={<AutoForm />} />
           <Route path="/sales_person" element={<SalesPersonForm />} />
+          <Route path="/customer" element={<CustomerForm />} />
         </Routes>
       </div>
     </BrowserRouter>
