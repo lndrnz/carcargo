@@ -40,15 +40,19 @@ x Review and choose microservice for each person
 -- Link to list of service history for a VIN
 
 ## Sales microservice
-- Models:
--- Sales Person
---- Fields: Name, Employee Number
--- Customer
---- Fields: Name, Address, Phone Number
--- Sales Record
---- Fields: Automobile (Foreign Key), Sales Person (Foreign Key), Customer (Foreign Key), Sale Price
--- AutomobileVO
---- Fields: VIN,
+x- Models:
+x-- Sales Person
+x--- Fields: Name, Employee Number
+x-- Customer
+x--- Fields: Name, Address, Phone Number
+x-- Sales Record
+x--- Fields: Automobile (Foreign Key), Sales Person (Foreign Key), Customer (Foreign Key), Sale Price
+x-- AutomobileVO
+x--- Fields: VIN,
+x- Views
+x-- Get/add/update/delete sales person
+x-- Get/add/update/delete customer
+x-- Get/add/update/delete sales record
 - React
 -- Create sales person form
 -- Create new customer form
