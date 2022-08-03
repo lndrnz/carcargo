@@ -16,13 +16,14 @@ x Review and choose microservice for each person
 
 ## Design
 - Refer to screenshot on gitlab for bounded context drawing
+- Integration - both the Service and Sales microservices rely on pulling the Automobile list from the Inventory microservice. We use polling in order to achieve this, and store the retrieved Automobiles in a value object model called AutomobileVO. This data is used in the SalesRecord model in the Sales microservice and in the ServiceAppointment model in the Service microservice.
 
 ## Service microservice
 - Models:
 -- Technician
 --- Fields: Name, Employee Number
 -- Service Appointment
---- Fields: Vehicle VIN (Foreign Key), Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
+--- Fields: Vehicle VIN, Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
 -- AutomobileVO
 --- Fields: VIN, 
 - React

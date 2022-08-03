@@ -162,7 +162,7 @@ class SalesRecordForm extends React.Component {
                             {this.state.automobiles.map(auto => {
                                 return (
                                     <option key={auto.id} value={auto.id}>
-                                    {auto.vin}
+                                    {auto.model.manufacturer.name} / {auto.model.name} / {auto.vin}
                                     </option>
                                 )
                             })}
