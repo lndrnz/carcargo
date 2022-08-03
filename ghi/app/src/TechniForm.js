@@ -19,7 +19,7 @@ class TechnicianForm extends React.Component {
 
         console.log(data);
 
-        const technicianUrl = 'http://localhost:8080/api/technicians/';
+        const technicianUrl = 'http://localhost:8080/api/technician/';
         const fetchConfig = {
           method: "post",
           body: JSON.stringify(data),
@@ -57,13 +57,13 @@ class TechnicianForm extends React.Component {
                 <div className="offset-3 col-6">
                     <div className="shadow p-4 mt-4">
                         <h1>Add a new Technician</h1>
-                        <form onSubmit={this.handleSubmit} id="create-sale-record-form">                        
+                        <form onSubmit={this.handleSubmit} id="create_technician_form">                        
                         <div className="form-floating mb-3">
                             <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={this.handleEmployeeNumChange} value={this.state.name} placeholder="Employee number" required type="text" name="employee_number" id="employee_number" className="form-control"/>
+                            <input onChange={this.handleEmployeeNumChange} value={this.state.employee_number} placeholder="Employee number" required type="text" name="employee_number" id="employee_number" className="form-control"/>
                             <label htmlFor="employee_number">Employee Number</label>
                         </div>       
                         <button className="btn btn-primary">Create</button>

@@ -7,7 +7,7 @@ class ServiceHistoryList extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:8080/api/serviceapp/')
+        const response = await fetch('http://localhost:8080/api/servicehistory/')
         if (response.ok) {
           const data = await response.json()
           this.setState({ service_history: data.service_history })
@@ -17,15 +17,15 @@ class ServiceHistoryList extends React.Component {
     render () {
         return (
             <>
-            <div class="input-group">
-         <div class="form-outline">
-        <input type="search" id="form1" class="form-control" />
-        <label class="form-label" for="form1">Search</label>
+            <div className="input-group">
+            <div className="form-outline">
+            <input type="search" id="form1" className="form-control" />
+            <label className="form-label" htmlFor="form1">Search</label>
             </div>
-  <button type="button" class="btn btn-primary">
-    <i class="fas fa-search"></i>
-  </button>
-</div>
+            <button type="button" className="btn btn-primary">
+            <i className="fas fa-search"></i>
+            </button>
+            </div>
             <h1>Service History</h1>
             <table className="table table-striped">
               <thead>
@@ -39,15 +39,15 @@ class ServiceHistoryList extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.service_history.map(serviceapp => {
+                {this.state.service_history.map(history => {
                   return (
-                    <tr key={serviceapp.id}>
-                      <td>{ serviceapp.vin }</td>
-                      <td>{ serviceapp.customer_name }</td>
-                      <td>{ serviceapp.appointment_date }</td>
-                      <td>{ serviceapp.appointment_time }</td>
-                      <td>{ serviceapp.assigned_technician }</td>
-                      <td>{ serviceapp.service_reason }</td>
+                    <tr key={history.id}>
+                      <td>{ history.vin }</td>
+                      <td>{ history.customer_name }</td>
+                      <td>{ history.appointment_date }</td>
+                      <td>{ history.appointment_time }</td>
+                      <td>{ history.assigned_technician }</td>
+                      <td>{ history.service_reason }</td>
                     </tr>
                   );
                 })}

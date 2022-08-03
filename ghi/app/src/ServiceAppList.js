@@ -3,14 +3,14 @@ import React from 'react'
 class ServiceAppList extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {service_appointments: []}
+        this.state = {serviceapps: []}
     }
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:8080/api/serviceapp/')
+        const response = await fetch('http://localhost:8080/api/serviceapps/')
         if (response.ok) {
           const data = await response.json()
-          this.setState({ service_appointments: data.service_appointments })
+          this.setState({ serviceapps: data.service_apps })
         }
       }  
 
@@ -30,15 +30,15 @@ class ServiceAppList extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.service_appointments.map(serviceapp => {
+                {this.state.serviceapps.map(app => {
                   return (
-                    <tr key={serviceapp.id}>
-                      <td>{ serviceapp.vin }</td>
-                      <td>{ serviceapp.customer_name }</td>
-                      <td>{ serviceapp.appointment_date }</td>
-                      <td>{ serviceapp.appointment_time }</td>
-                      <td>{ serviceapp.assigned_technician }</td>
-                      <td>{ serviceapp.service_reason }</td>
+                    <tr key={app.vin}>
+                      <td>{ app.vin }</td>
+                      <td>{ app.customer_name }</td>
+                      <td>{ app.appointment_date }</td>
+                      <td>{ app.appointment_time }</td>
+                      <td>{ app.assigned_technician.name }</td>
+                      <td>{ app.service_reason }</td>
                     </tr>
                   );
                 })}

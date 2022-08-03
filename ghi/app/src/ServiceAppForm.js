@@ -27,7 +27,7 @@ class ServiceAppForm extends React.Component {
 
         console.log(data);
 
-        const serviceappUrl = 'http://localhost:8080/api/serviceapp/';
+        const serviceappUrl = 'http://localhost:8080/api/serviceapps/';
         const fetchConfig = {
           method: "post",
           body: JSON.stringify(data),
@@ -35,7 +35,7 @@ class ServiceAppForm extends React.Component {
             'Content-Type': 'application/json',
           },
         };
-        const response = await fetch(serviceapp, fetchConfig);
+        const response = await fetch(serviceappUrl, fetchConfig);
         if (response.ok) {
           const newServiceApp = await response.json();
           console.log(newServiceApp);

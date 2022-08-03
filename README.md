@@ -27,7 +27,7 @@ x-- AutomobileVO
 x--- Fields: VIN, 
 - React
 x-- Create a technician form
-x-- Create a service appointment form
+-- Create a service appointment form
 -- List of all service appointments
 --- VIN, Customer Name, Date, Time, Assigned Tech Name, Service Reason
 x-- List of all service history for a specific VIN

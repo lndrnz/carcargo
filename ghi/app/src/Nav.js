@@ -41,17 +41,17 @@ function Nav() {
               <NavLink className="nav-link" to="sales_records/new/">Create Sale Record</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="sales_records/new/">Create a new service technician</NavLink>
+              <NavLink className="nav-link" to="technician/">Create a new service technician</NavLink>
             </li>
             
             <li className="nav-item">
-              <NavLink className="nav-link" to="sales_records/new/">Create a new service appointment</NavLink>
+              <NavLink className="nav-link" to="serviceapp/new/">Create a new service appointment</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="serviceapp/">Service appointment list</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="sales_records/new/">Service history list</NavLink>
+              <NavLink className="nav-link" to="servicehistory/">Service history list</NavLink>
             </li>
           </ul>
         </div>

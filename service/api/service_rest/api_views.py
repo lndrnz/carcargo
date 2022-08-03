@@ -91,18 +91,21 @@ class ServiceAppointmentEncoder (ModelEncoder):
 @require_http_methods(["GET", "POST"])
 def api_serviceapps(request):
     if request.method == "GET":
-        # show all technicians
+
         serviceapp = ServiceAppointment.objects.all()
         print("technicians all", serviceapp)
         print("type", type(serviceapp))
         return JsonResponse(
-            {"": serviceapp},
+            {"service_apps": serviceapp},
             encoder=ServiceAppointmentEncoder,
         )
     else: # POST
         content = json.loads(request.body)
         print("content", content)
         try:
+            assignedtech = content["assigned_technician"]
+            technician = Technician.objects.get(name=assignedtech)
+            content["assigned_technician"] = technician
             app = ServiceAppointment.objects.create(**content)
         except ServiceAppointment.DoesNotExist:
             return JsonResponse(
@@ -142,3 +145,15 @@ def api_serviceapp(request, pk):
                 {"message": "Invalid service appointment"},
                 status=400,
             )
+
+@require_http_methods(["GET"])
+def api_getsearchhistory(request, vin):
+    if request.method == "GET":
+        appointments = ServiceAppointment.objects.get(vin=vin)
+        return JsonResponse(
+            appointments,
+            encoder=ServiceAppointmentEncoder,
+            safe=False,
+        )
+
+
