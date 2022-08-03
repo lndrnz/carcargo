@@ -4,29 +4,66 @@ class ServiceHistoryList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {service_history: []}
+    
+    this.handleVinChange= this.handleVinChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+
+    
+
+    }
+    
+    async handleSubmit(event) {
+        event.preventDefault();
+        const data = {...this.state};
+
+        console.log(data);
+
+        const HistoryUrl = 'http://localhost:8080/api/servicehistory/';
+        const fetchConfig = {
+          method: "post",
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        const response = await fetch(HistoryUrl, fetchConfig);
+        if (response.ok) {
+          const newHistory = await response.json();
+          console.log(newHistory);
+
+          const cleared = {
+            vin: ''
+          };
+          this.setState(cleared);
+        }
     }
 
-    async componentDidMount() {
-        const response = await fetch('http://localhost:8080/api/servicehistory/')
-        if (response.ok) {
-          const data = await response.json()
-          this.setState({ service_history: data.service_history })
-        }
-      }  
+
+
+
+    handleVinChange(event) {
+        const value = event.target.value;
+        this.setState({vin: value})
+      }
 
     render () {
         return (
             <>
-            <div className="input-group">
-            <div className="form-outline">
-            <input type="search" id="form1" className="form-control" />
-            <label className="form-label" htmlFor="form1">Search</label>
-            </div>
-            <button type="button" className="btn btn-primary">
-            <i className="fas fa-search"></i>
-            </button>
-            </div>
+
             <h1>Service History</h1>
+            <form onSubmit={this.handleSubmit}
+            id="search_history">
+
+            <div className="main-search-input-wrap">
+            <div className="main-search-input fl-wrap">
+            <div className="main-search-input-item">
+            <input onChange={this.handleVinChange} value={this.state.vin} type="text"placeholder="Search VIN..."
+            requiredtype="text" name="vin" id="vin" />
+            </div>
+            <button className="main-search-button">Search</button>
+            </div>
+            </div>
+            </form>
             <table className="table table-striped">
               <thead>
                 <tr>
@@ -41,12 +78,12 @@ class ServiceHistoryList extends React.Component {
               <tbody>
                 {this.state.service_history.map(history => {
                   return (
-                    <tr key={history.id}>
+                    <tr key={history.vin}>
                       <td>{ history.vin }</td>
                       <td>{ history.customer_name }</td>
                       <td>{ history.appointment_date }</td>
                       <td>{ history.appointment_time }</td>
-                      <td>{ history.assigned_technician }</td>
+                      <td>{ history.assigned_technician.name }</td>
                       <td>{ history.service_reason }</td>
                     </tr>
                   );
