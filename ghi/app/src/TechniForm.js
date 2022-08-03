@@ -50,6 +50,8 @@ class TechnicianForm extends React.Component {
         this.setState({employee_number: value})
     }
 
+    
+
 
     render () {
         return (

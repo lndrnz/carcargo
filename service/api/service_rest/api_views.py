@@ -28,7 +28,7 @@ def api_technicians(request):
         print("technicians all", technician)
         print("type", type(technician))
         return JsonResponse(
-            {"": technician},
+            {"technicians": technician},
             encoder=TechnicianEncoder,
         )
     else: # POST
@@ -104,7 +104,8 @@ def api_serviceapps(request):
         print("content", content)
         try:
             assignedtech = content["assigned_technician"]
-            technician = Technician.objects.get(name=assignedtech)
+            print("!!!!!!", assignedtech)
+            technician = Technician.objects.get(employee_number=assignedtech)
             content["assigned_technician"] = technician
             app = ServiceAppointment.objects.create(**content)
         except ServiceAppointment.DoesNotExist:
