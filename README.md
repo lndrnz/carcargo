@@ -26,11 +26,11 @@ x--- Fields: Vehicle VIN (Foreign Key), Customer Name, Appointment Date, Appoint
 x-- AutomobileVO
 x--- Fields: VIN, 
 - React
--- Create a technician form
--- Create a service appointment form
+x-- Create a technician form
+x-- Create a service appointment form
 -- List of all service appointments
 --- VIN, Customer Name, Date, Time, Assigned Tech Name, Service Reason
--- List of all service history for a specific VIN
+x-- List of all service history for a specific VIN
 --- Search bar to search for specific VIN
 --- VIN, Customer Name, Date, Time, Tech Name, Reason
 - Nav Bar
