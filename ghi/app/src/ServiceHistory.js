@@ -3,41 +3,22 @@ import React from 'react'
 class ServiceHistoryList extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {service_history: []}
+        this.state = {
+            vin: '',
+            service_history: []}
     
-    this.handleVinChange= this.handleVinChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
 
-    
+    this.handleVinChange=this.handleVinChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)    
 
     }
     
     async handleSubmit(event) {
         event.preventDefault();
-        const data = {...this.state};
 
-        console.log(data);
-
-        const HistoryUrl = 'http://localhost:8080/api/servicehistory/';
-        const fetchConfig = {
-          method: "post",
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        };
-        const response = await fetch(HistoryUrl, fetchConfig);
-        if (response.ok) {
-          const newHistory = await response.json();
-          console.log(newHistory);
-
-          const cleared = {
-            vin: ''
-          };
-          this.setState(cleared);
-        }
+        const contract = this.state.service_history.filter((service) => {return service.vin === this.state.vin})
+        this.setState({service_history: contract})
     }
-
 
 
 
@@ -45,7 +26,22 @@ class ServiceHistoryList extends React.Component {
         const value = event.target.value;
         this.setState({vin: value})
       }
+    
+    async componentDidMount() {
+        const url = 'http://localhost:8080/api/serviceapps/';
 
+        const response = await fetch(url);
+    
+        if (response.ok) {
+          const data = await response.json();
+          this.setState({service_history: data.service_apps});
+    
+
+        }
+      }
+    
+
+    
     render () {
         return (
             <>
@@ -76,18 +72,18 @@ class ServiceHistoryList extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.service_history.map(history => {
+                {this.state.service_history ? this.state.service_history.map(history => {
                   return (
                     <tr key={history.vin}>
-                      <td>{ history.vin }</td>
-                      <td>{ history.customer_name }</td>
-                      <td>{ history.appointment_date }</td>
-                      <td>{ history.appointment_time }</td>
-                      <td>{ history.assigned_technician.name }</td>
-                      <td>{ history.service_reason }</td>
+                      <td>{history.vin}</td>
+                      <td>{history.customer_name}</td>
+                     <td>{history.appointment_date}</td>
+                      <td>{history.appointment_time}</td>
+                      <td>{history.assigned_technician.name}</td>
+                      <td>{history.service_reason}</td>
                     </tr>
-                  );
-                })}
+                  )
+                }): null }
               </tbody>
             </table>
             

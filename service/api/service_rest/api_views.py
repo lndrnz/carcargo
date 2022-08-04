@@ -147,14 +147,39 @@ def api_serviceapp(request, pk):
                 status=400,
             )
 
-@require_http_methods(["GET"])
+@require_http_methods(["DELETE", "GET", "PUT"])
 def api_getsearchhistory(request, vin):
-    if request.method == "GET":
+    if request.method == "DELETE":
+        app = ServiceAppointment.objects.get(vin=vin)
+        app.delete()
+        return JsonResponse({"deleted": "text done"})
+    elif request.method == "GET":
         appointments = ServiceAppointment.objects.get(vin=vin)
         return JsonResponse(
             appointments,
             encoder=ServiceAppointmentEncoder,
             safe=False,
         )
+    else: # PUT
+        try:
+            content = json.loads(request.body)
+            tech = Technician.objects.get(employee_number=content["assigned_technician"])
+            content["assigned_technician"] = tech
+            app = ServiceAppointment.objects.get(vin=vin)
+            props = ["vin", "customer_name", "appointment_date", "appointment_time", "assigned_technician", "service_reason"]
+            for prop in props:
+                if prop in content:
+                    setattr(app, prop, content[prop])
+                    app.save()
+            return JsonResponse(
+                app,
+                encoder=ServiceAppointmentEncoder,
+                safe=False,
+            )
+        except ServiceAppointment.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid service appointment"},
+                status=400,
+            )
 
 
