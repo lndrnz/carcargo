@@ -43,6 +43,7 @@ class SalesRecordForm extends React.Component {
           },
         };
         const response = await fetch(recordUrl, fetchConfig);
+        window.location.reload()
         if (response.ok) {
           const newRecord = await response.json();
           console.log(newRecord);
@@ -78,7 +79,7 @@ class SalesRecordForm extends React.Component {
     }
 
     async componentDidMount() {
-        const autoURL = 'http://localhost:8100/api/automobiles/';    
+        const autoURL = 'http://localhost:8090/api/automobilevos/';    
         const response = await fetch(autoURL);
 
         const salesURL = 'http://localhost:8090/api/sales_records/';
@@ -162,7 +163,7 @@ class SalesRecordForm extends React.Component {
                             {this.state.automobiles.map(auto => {
                                 return (
                                     <option key={auto.id} value={auto.id}>
-                                    {auto.model.manufacturer.name} / {auto.model.name} / {auto.vin}
+                                    {auto.vin}
                                     </option>
                                 )
                             })}
