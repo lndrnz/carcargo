@@ -10,6 +10,10 @@ import AutoForm from './AutoForm';
 import SalesPersonForm from './SalesPersonForm';
 import CustomerForm from './CustomerForm';
 import SalesRecordForm from './SalesRecordForm';
+import TechnicianForm from './TechniForm';
+import ServiceAppForm from './ServiceAppForm';
+import ServiceAppList from './ServiceAppList';
+import ServiceHistoryList from './ServiceHistory';
 import SalesList from './SalesList';
 import SalesPersonHistory from './SalesPersonHistory';
 
@@ -29,9 +33,14 @@ function App() {
           <Route path="/sales_person" element={<SalesPersonForm />} />
           <Route path="/customer" element={<CustomerForm />} />
           <Route path="/sales_records/new" element={<SalesRecordForm />} />
+          <Route path="/technician/" element={<TechnicianForm />} />
+          <Route path="/serviceapp/new" element={<ServiceAppForm />} />
+          <Route path="/serviceapp/" element={<ServiceAppList />} />
+          <Route path="/servicehistory/" element={<ServiceHistoryList />} />
           <Route path="/sales_records" element={<SalesList />} />
           <Route path="/sales_records/history" element={<SalesPersonHistory />} />
         </Routes>
+        
       </div>
     </BrowserRouter>
   );
