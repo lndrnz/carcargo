@@ -26,7 +26,6 @@ class ServiceAppForm extends React.Component {
         event.preventDefault();
         const data = {...this.state};
         delete data.assigned_technicians
-        console.log(data);
 
         const serviceappUrl = 'http://localhost:8080/api/serviceapps/';
         const fetchConfig = {
@@ -39,7 +38,6 @@ class ServiceAppForm extends React.Component {
         const response = await fetch(serviceappUrl, fetchConfig);
         if (response.ok) {
           const newServiceApp = await response.json();
-          console.log(newServiceApp);
 
           const cleared = {
             vin: '',

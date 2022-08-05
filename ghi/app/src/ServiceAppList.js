@@ -36,7 +36,6 @@ class ServiceAppList extends React.Component {
       const response = await fetch(serviceappUrl, fetchConfig);
         if (response.ok) {
           const newServiceApp = await response.json();
-          console.log(newServiceApp)
 
         }
       const url = await fetch('http://localhost:8080/api/serviceapps/')
@@ -56,11 +55,9 @@ class ServiceAppList extends React.Component {
       if (response.ok) {
         const data = await response.json()
         const app = data.service_app
-        console.log(data.service_app)
         const updatedlist = [...this.state.serviceapps]
         let index = updatedlist.indexOf(app)
         updatedlist.splice(index, 1)
-        console.log(updatedlist)
         this.setState({ serviceapps: updatedlist })
   
       }
