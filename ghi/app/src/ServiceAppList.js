@@ -17,7 +17,8 @@ class ServiceAppList extends React.Component {
         const response = await fetch('http://localhost:8080/api/serviceapps/')
         if (response.ok) {
           const data = await response.json()
-          this.setState({ serviceapps: data.service_apps })
+          const appslist = data.service_apps.filter(app => !app.finished)
+          this.setState({ serviceapps: appslist })
         }
       }  
 
