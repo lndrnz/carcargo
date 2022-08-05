@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class VehicleList extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class VehicleList extends React.Component {
     render () {
         return (
             <>
-            <h1>Vehicle Models</h1>
+            <h1>Vehicle Models <Link to="new/"><button className="btn btn-primary btn-lg">Create a Vehicle</button></Link></h1>
             <table className="table table-striped">
               <thead>
                 <tr>

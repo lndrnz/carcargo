@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class SalesList extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class SalesList extends React.Component {
     render () {
         return (
             <>
-            <h1>All Sales</h1>
+            <h1>Sales Records <Link to="new/"><button className="btn btn-primary btn-lg">Create a Sales Record</button></Link></h1>
             <table className="table table-striped">
               <thead>
                 <tr>

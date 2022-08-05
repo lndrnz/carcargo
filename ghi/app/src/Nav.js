@@ -16,20 +16,32 @@ function Nav() {
             <li className="nav-item">
               <NavLink className="nav-link" to="manufacturers/">Manufacturers</NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="manufacturers/new/">Create Manufacturer</NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink className="nav-link" to="vehicles/">Vehicles</NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="vehicles/new/">Create Vehicle</NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink className="nav-link" to="automobiles/">Automobiles</NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="automobiles/new/">Create Automobile</NavLink>
+            </li> */}
+            <li className="nav-item">
+              <NavLink className="nav-link" to="technician/">Create Service Technician</NavLink>
+            </li>            
+            {/* <li className="nav-item">
+              <NavLink className="nav-link" to="serviceapp/new/">Create Service Appointment</NavLink>
+            </li> */}
+            <li className="nav-item">
+              <NavLink className="nav-link" to="serviceapp/">Service Appointments</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="servicehistory/">Service History</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="sales_person/">Create Sales Person</NavLink>
@@ -37,25 +49,14 @@ function Nav() {
             <li className="nav-item">
               <NavLink className="nav-link" to="customer/">Create Customer</NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="sales_records/new/">Create Sale Record</NavLink>
+            </li> */}
+            <li className="nav-item">
+              <NavLink className="nav-link" to="sales_records/">Sales Records</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="technician/">Create Service Technician</NavLink>
-            </li>
-            
-            <li className="nav-item">
-              <NavLink className="nav-link" to="serviceapp/new/">Create Service Appointment</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="serviceapp/">Service Appointment List</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="servicehistory/">Service History</NavLink>
-              <NavLink className="nav-link" to="sales_records/">View Sales</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="sales_records/history/">View Sales History</NavLink>
+              <NavLink className="nav-link" to="sales_records/history/">Sales Person History</NavLink>
             </li>
           </ul>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class ServiceAppList extends React.Component {
     constructor(props) {
@@ -67,7 +68,7 @@ class ServiceAppList extends React.Component {
     render () {
         return (
             <>
-            <h1>Service Appointments</h1>
+            <h1>Service Appointments <Link to="new/"><button className="btn btn-primary btn-lg">Create a Service Appointment</button></Link></h1>
             <table className="table table-striped">
               <thead>
                 <tr>

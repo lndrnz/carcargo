@@ -12,36 +12,43 @@ x Create excalidraw for project
 x Document each microservice
 x Create inventory react pages
 x Review and choose microservice for each person
-- Complete microservices
+x Complete microservices
 
 ## Design
-- Refer to screenshot on gitlab for bounded context drawing
-- Integration - both the Service and Sales microservices rely on pulling the Automobile list from the Inventory microservice. We use polling in order to achieve this, and store the retrieved Automobiles in a value object model called AutomobileVO. This data is used in the SalesRecord model in the Sales microservice and in the ServiceAppointment model in the Service microservice.
+- Running the Project
+-- To run the project, cd into the directory then do "docker-compose build" then "docker-compose up".
+-- For creating a service appointment, the date should be in this format: YYYY-MM-DD and the time should be in this format: HH:MM:SS
+-- To save space in the navigation, the links to the "create" pages for some entities are located within the entity list page on buttons. For example, to create an Automobile, go to the Automobile List link and click the "Create an automobile" button.
+--- List of entities with the create link on their list page:
+---- Manufacturers, Vehicles, Automobiles, Service Appointments, Sales Records
+- Design Information
+-- Refer to our excalidraw screenshot for how we defined our designs with respect to our Entities and Bounded Contexts. Located within same folder level as the README file.
+--- Filename: bounded context drawing.png
+-- Integration - both the Service and Sales microservices rely on pulling the Automobile list from the Inventory microservice. We use polling in order to achieve this, and store the retrieved Automobiles in a value object model called AutomobileVO. This data is used in the SalesRecord model in the Sales microservice and in the ServiceAppointment model in the Service microservice.
+
 
 ## Service microservice
-- Models:
+x- Models:
 x-- Technician
 x--- Fields: Name, Employee Number
 x-- Service Appointment
-x--- Fields: Vehicle VIN (Foreign Key), Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
+x--- Fields: Vehicle VIN, Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
 x-- AutomobileVO
 x--- Fields: VIN, 
--- Technician
---- Fields: Name, Employee Number
--- Service Appointment
---- Fields: Vehicle VIN, Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
--- AutomobileVO
---- Fields: VIN, 
-- React
+x- Views
+x-- Get/add/update/create technician
+x-- Get/add/update/create service appointment
+x- React
 x-- Create a technician form
 x-- Create a service appointment form
 x-- List of all service appointments
 x-- VIN, Customer Name, Date, Time, Assigned Tech Name, Service Reason
--- List of all service history for a specific VIN
---- Search bar to search for specific VIN
---- VIN, Customer Name, Date, Time, Tech Name, Reason
-x-- pollers
-- Nav Bar
+x-- List of all service history for a specific VIN
+x--- Search bar to search for specific VIN
+x--- VIN, Customer Name, Date, Time, Tech Name, Reason
+x- Poller
+x-- Retrieve automobiles from inventory using poller
+x- Nav Bar
 x-- Link to create new service technician
 x-- Link to create new service appointment
 x-- Link to list of service appointments
@@ -70,6 +77,8 @@ x--- Sales Person's Name, Employee Number, Purchaser Name, Automobile VIN, and S
 x-- Sales Person's sale history
 x--- Dropdown to search for the sales person
 x--- Show Sales Person Name, Customer Name, VIN, and Sale Price
+x- Poller
+x-- Retrieve automobiles from inventory using poller
 x- Nav Bar:
 x-- Link to create a new sales person
 x-- Link to create a new customer

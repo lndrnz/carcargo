@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class ManuList extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class ManuList extends React.Component {
     render () {
         return (
             <>
-            <h1>Manufacturers</h1>
+            <h1>Manufacturers <Link to="new/"><button className="btn btn-primary btn-lg">Create a Manufacturer</button></Link></h1>
             <table className="table table-striped">
               <thead>
                 <tr>
