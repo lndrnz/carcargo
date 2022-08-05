@@ -22,6 +22,7 @@ class ServiceAppointment (models.Model):
     appointment_time = models.TimeField()
     assigned_technician = models.ForeignKey(Technician, related_name="service_appointment", on_delete=models.CASCADE)
     service_reason = models.TextField()
+    finished = models.BooleanField(default= False)
 
     def get_api_url(self):
         return reverse("api_serviceapp", kwargs={"pk": self.id})

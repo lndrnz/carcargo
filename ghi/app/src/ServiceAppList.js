@@ -9,6 +9,7 @@ class ServiceAppList extends React.Component {
         }
     
         this.handledelete= this.handledelete.bind(this)
+        this.handlefinish= this.handlefinish.bind(this)
     }
 
 
@@ -23,7 +24,7 @@ class ServiceAppList extends React.Component {
 
 
     async handledelete(app) {
-      const serviceappUrl = `http://localhost:8080/api/serviceapps/${app.vin}`;
+      const serviceappUrl = `http://localhost:8080/api/serviceapps/${app.id}`;
       const fetchConfig = {
         method: "delete",
         body: JSON.stringify(app),
@@ -42,6 +43,27 @@ class ServiceAppList extends React.Component {
         const data = await url.json()
         this.setState({ serviceapps: data.service_apps })
       }
+    
+    }
+    async handlefinish(app) {
+      const url = (`http://localhost:8080/api/serviceapps/${app.id}/`)
+      const requestOption = {
+        method: 'PUT',
+        headers: {'Content-Type' : 'application/json'},
+      }
+      const response = await fetch(url, requestOption)
+      if (response.ok) {
+        const data = await response.json()
+        const app = data.service_app
+        console.log(data.service_app)
+        const updatedlist = [...this.state.serviceapps]
+        let index = updatedlist.indexOf(app)
+        updatedlist.splice(index, 1)
+        console.log(updatedlist)
+        this.setState({ serviceapps: updatedlist })
+  
+      }
+
 
     }
     render () {
@@ -71,7 +93,7 @@ class ServiceAppList extends React.Component {
                       <td>{ app.assigned_technician.name }</td>
                       <td>{ app.service_reason }</td>
                       <td><button onClick={() => this.handledelete(app)} type="button" className="btn btn-danger">Cancel</button>
-                      <button  onClick={() => this.handledelete(app)} type="button" className="btn btn-success">Finished</button> </td>
+                      <button  onClick={() => this.handlefinish(app)} type="button" className="btn btn-success">Finished</button> </td>
                     </tr>
                   );
                 })}

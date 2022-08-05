@@ -82,7 +82,8 @@ class ServiceAppointmentEncoder (ModelEncoder):
     "appointment_date",
     "appointment_time",
     "assigned_technician",
-    "service_reason",]
+    "service_reason",
+    "id",]
     
     encoders = {
         "assigned_technician": TechnicianEncoder(),
@@ -133,11 +134,10 @@ def api_serviceapp(request, pk):
         )
     else: # PUT
         try:
-            content = json.loads(request.body)
-            ServiceAppointment.objects.filter(id=pk).update(**content)
-            service_apps = ServiceAppointment.objects.get(id=pk)
+            ServiceAppointment.objects.filter(id=pk).update(finished=True)
+            service_app = ServiceAppointment.objects.get(id=pk)
             return JsonResponse(
-                service_apps,
+                service_app,
                 encoder=ServiceAppointmentEncoder,
                 safe=False,
             )
