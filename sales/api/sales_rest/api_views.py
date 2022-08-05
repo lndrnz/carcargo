@@ -212,7 +212,7 @@ def api_sales_records(request):
             customer_id = content["customer_id"]
             customer = Customer.objects.get(id=customer_id)
             content["customer"] = customer
-
+            print("content:", content)
             record = SalesRecord.objects.create(**content)
             return JsonResponse(
                 record,

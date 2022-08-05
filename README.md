@@ -16,6 +16,7 @@ x Review and choose microservice for each person
 
 ## Design
 - Refer to screenshot on gitlab for bounded context drawing
+- Integration - both the Service and Sales microservices rely on pulling the Automobile list from the Inventory microservice. We use polling in order to achieve this, and store the retrieved Automobiles in a value object model called AutomobileVO. This data is used in the SalesRecord model in the Sales microservice and in the ServiceAppointment model in the Service microservice.
 
 ## Service microservice
 - Models:
@@ -25,6 +26,12 @@ x-- Service Appointment
 x--- Fields: Vehicle VIN (Foreign Key), Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
 x-- AutomobileVO
 x--- Fields: VIN, 
+-- Technician
+--- Fields: Name, Employee Number
+-- Service Appointment
+--- Fields: Vehicle VIN, Customer Name, Appointment Date, Appointment Time, Assigned Technician (Foreign Key), Service Reason
+-- AutomobileVO
+--- Fields: VIN, 
 - React
 x-- Create a technician form
 x-- Create a service appointment form
@@ -54,18 +61,18 @@ x- Views
 x-- Get/add/update/delete sales person
 x-- Get/add/update/delete customer
 x-- Get/add/update/delete sales record
-- React
--- Create sales person form
--- Create new customer form
--- Create new sales record form
--- List of all sales
---- Sales Person's Name, Employee Number, Purchaser Name, Automobile VIN, and Sale Price
--- Sales Person's sale history
---- Dropdown to search for the sales person
---- Show Sales Person Name, Customer Name, VIN, and Sale Price
-- Nav Bar:
--- Link to create a new sales person
--- Link to create a new customer
--- Link to create a new sales record
--- Link to list of all sales
--- Link to sales person history list
+x- React
+x-- Create sales person form
+x-- Create new customer form
+x-- Create new sales record form
+x-- List of all sales
+x--- Sales Person's Name, Employee Number, Purchaser Name, Automobile VIN, and Sale Price
+x-- Sales Person's sale history
+x--- Dropdown to search for the sales person
+x--- Show Sales Person Name, Customer Name, VIN, and Sale Price
+x- Nav Bar:
+x-- Link to create a new sales person
+x-- Link to create a new customer
+x-- Link to create a new sales record
+x-- Link to list of all sales
+x-- Link to sales person history list

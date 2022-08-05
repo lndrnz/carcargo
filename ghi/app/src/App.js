@@ -14,6 +14,8 @@ import TechnicianForm from './TechniForm';
 import ServiceAppForm from './ServiceAppForm';
 import ServiceAppList from './ServiceAppList';
 import ServiceHistoryList from './ServiceHistory';
+import SalesList from './SalesList';
+import SalesPersonHistory from './SalesPersonHistory';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/serviceapp/new" element={<ServiceAppForm />} />
           <Route path="/serviceapp/" element={<ServiceAppList />} />
           <Route path="/servicehistory/" element={<ServiceHistoryList />} />
+          <Route path="/sales_records" element={<SalesList />} />
+          <Route path="/sales_records/history" element={<SalesPersonHistory />} />
         </Routes>
         
       </div>
