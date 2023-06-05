@@ -20,7 +20,7 @@ import SalesPersonHistory from './SalesPersonHistory';
 function App() {
   return (
     <BrowserRouter>
-      <Nav />
+    <Nav />
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
