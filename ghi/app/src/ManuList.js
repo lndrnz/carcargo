@@ -37,7 +37,7 @@ const ManuList = () => {
           )})
       }
       </tbody>
-    </table>
+
 </>
   )        
     }
