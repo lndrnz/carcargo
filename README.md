@@ -23,7 +23,7 @@ docker compose build
 docker compose up
 ```
 
-Al the containers should be running and the access point of the app should be on a web browser at http://localhost:3000/
+All the containers should be running and the access point of the app should be on a web browser at http://localhost:3000/
 
 ## Tutorial
 For creating a service appointment, the date should be in this format: YYYY-MM-DD and the time should be in this format: HH:MM:SS
