@@ -1,7 +1,7 @@
 # CarCarGo
-![HomePage](Images/Screenshot%202.jpeg)
-![Inventory](Images/Screensho%203.jpeg)
-![ServiceHistory](Images/Screenshot%201.jpeg)
+![Image](Images/Screenshot%202.jpeg)
+![Image](Images/Screensho%203.jpeg)
+![Image](Images/Screenshot%201.jpeg)
 
 
 ## Summary
@@ -36,7 +36,7 @@ List of entities with the create link on their list page:
 * Manufacturers, Vehicles, Automobiles, Service Appointments, Sales Records
 ---
 ## System Design Information
-![Exalidraw](Images/bounded%20context%20drawing.png)
+![Image](Images/bounded%20context%20drawing.png)
 ### Integration
 Both the Service and Sales microservices rely on pulling the Automobile list from the Inventory microservice. We use polling in order to achieve this, and store the retrieved Automobiles in a value object model called AutomobileVO. This data is used in the SalesRecord model in the Sales microservice and in the ServiceAppointment model in the Service microservice.
 
