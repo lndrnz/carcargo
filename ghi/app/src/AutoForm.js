@@ -1,5 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+
+const AutoForm = () => {
+const [color, setColor] = useState('')
+const [year, setYear] = useState('')
+const [vin, setVin] = useState('')
+const [models, setModels] = useState([])
+const handleSubmit = async (event) => {
+    event.preventDefault()
+    const data = {color, year, vin, models}
+    delete data.models
+    data.model_id = data.models
+    delete data.models
+}
+
+}
 class AutoForm extends React.Component {
     constructor (props) {
         super(props)
